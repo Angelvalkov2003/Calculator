@@ -24,9 +24,15 @@ def clear():
     equationText = ""
 
 
+def delLastDigit():
+    global equationText
+    equationText = equationText[:-1]
+    equationLabel.set(equationText)
+
+
 window = Tk()
 window.title("Calculator program")
-window.geometry('500x500')
+window.geometry('700x700')
 
 equationText = ''
 equationLabel = StringVar()
@@ -100,5 +106,8 @@ clear = Button(window, text='clear', height=4, width=40, font=35,
                command=clear)
 clear.pack()
 
-window.mainloop()
+deleteLastDigit = Button(window, text='Delete last digit', height=4, width=40, font=35,
+                         command=delLastDigit)
+deleteLastDigit.pack()
 
+window.mainloop()
